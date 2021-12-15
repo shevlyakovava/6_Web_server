@@ -31,7 +31,7 @@ try:
     sock.bind(('', 80))
 except OSError:
     sock.bind(('', 8080))
-print("Сервер запущен")
+print("Сервер запущен по адресу http://localhost/")
 sock.listen(5)
 while True:
     conn, addr = sock.accept()

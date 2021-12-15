@@ -11,19 +11,19 @@ def working(conn, addr):
         with open('index.html', 'rb') as file:
             site = file.read()
             conn.send(site)
-    if request_from_server == '/index.html':
+    elif request_from_server == '/index.html':
         with open('index.html', 'rb') as file:
             site = file.read()
             conn.send(site)
-    elif request_from_server == '/error.html':
-        with open('error.html', 'rb') as file:
+    elif request_from_server == '/1.html':
+        with open('1.html', 'rb') as file:
             site = file.read()
             conn.send(site)
 
     else:
-        resp = """HTTP/1.1 200 OK
-        NOT FOUND"""
-        conn.send(resp.encode('utf-8'))
+        with open('error.html', 'rb') as file:
+            site = file.read()
+            conn.send(site)
 
             
 sock = socket.socket()

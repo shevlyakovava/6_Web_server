@@ -15,11 +15,15 @@ def working(conn, addr):
         with open('index.html', 'rb') as file:
             site = file.read()
             conn.send(site)
-
-    else:
+    elif request_from_server == '/error.html':
         with open('error.html', 'rb') as file:
             site = file.read()
             conn.send(site)
+
+    else:
+        resp = """HTTP/1.1 200 OK
+        NOT FOUND"""
+        conn.send(resp.encode('utf-8'))
 
             
 sock = socket.socket()
